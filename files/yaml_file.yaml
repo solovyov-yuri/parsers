@@ -1,0 +1,12 @@
+server:
+  host: localhost
+  port: 22
+  user: sudo
+  password: 1234
+
+flow:
+  marts:
+  - mart_name: mart_deal
+    id: 1
+  - mart_name: mart_client
+    id: 2
