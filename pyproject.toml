@@ -1,5 +1,5 @@
 [project]
-name = "parcers"
+name = "my-parsers"
 version = "0.1.0"
 description = "Add your description here"
 readme = "README.md"
@@ -7,4 +7,8 @@ requires-python = ">=3.12"
 dependencies = [
     "pytest>=8.3.5",
     "pyyaml>=6.0.2",
+]
+[tool.pytest.ini_options]
+pythonpath = [
+  "."
 ]

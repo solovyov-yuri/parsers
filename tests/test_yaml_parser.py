@@ -33,6 +33,8 @@ def test_setattr():
     config = YamlParser({})
     config.new_key = "new_value"
     assert config.new_key == "new_value"
+    config.new_key = "very_new_key"
+    assert config.new_key == "very_new_key"
 
 
 def test_getitem():
@@ -71,7 +73,7 @@ def test_delete_item():
     assert "key" not in config
 
 
-def test_save_yaml(tmp_path):
+def test_save_yaml_from_dict(tmp_path):
     config = YamlParser({"saved": "yes"})
     yaml_file = tmp_path / "saved_config.yaml"
     config.save_yaml(str(yaml_file))
