@@ -1,6 +1,6 @@
 import yaml
 
-from src.yaml_parser import YamlParser
+from parsers.yaml_parser import YamlParser
 
 
 def test_init_with_dict():
