@@ -44,3 +44,8 @@ def test_missing_key(temp_config_file):
     config = Config(temp_config_file)
     with pytest.raises(AttributeError, match="No such key: unknown_key"):
         config.database.unknown_key
+
+
+def test_invalid_config_path():
+    with pytest.raises(FileNotFoundError, match="Config file not found: invalid_path.ini"):
+        Config("invalid_path.ini")

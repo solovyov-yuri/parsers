@@ -1,4 +1,5 @@
 import configparser
+import os
 
 
 class Section(dict):
@@ -16,6 +17,9 @@ class Section(dict):
 
 class Config:
     def __init__(self, config_path: str = "config.ini") -> None:
+        if not os.path.exists(config_path):
+            raise FileNotFoundError(f"Config file not found: {config_path}")
+            
         self._config = configparser.ConfigParser()
         self._config.read(config_path, encoding="utf-8")
 
@@ -23,6 +27,3 @@ class Config:
         if self._config.has_section(section):
             return Section(self._config, section)
         raise AttributeError(f"No such section: {section}")
-
-
-config = Config()
